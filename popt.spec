@@ -11,7 +11,7 @@ Group:		Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.redhat.com/pub/redhat/code/popt/%{name}-%{version}.tar.gz
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Popt is a C library for pasing command line parameters. It was heavily
