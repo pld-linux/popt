@@ -5,7 +5,7 @@
  AM_CONFIG_HEADER(config.h)
  
 -ALL_LINGUAS="cs da es gl hu is ko no pl pt ro ru sk sl sv tr uk wa zh_CN.GB2312"
-+ALL_LINGUAS="cs da es gl hu is ko no pl pt ro ru sk sl sv tr uk wa zh_CN"
++ALL_LINGUAS="cs da es gl hu is ko nb pl pt ro ru sk sl sv tr uk wa zh_CN"
  
  AC_ISC_POSIX
  
