@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.6
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -127,7 +127,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libpopt.so
 %attr(755,root,root) %{_libdir}/libpopt.la
-%{_mandir}/man3/popt.3.gz
+%{_mandir}/man3/*
 %{_includedir}/popt.h
 
 %files static
