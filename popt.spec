@@ -58,7 +58,9 @@ deðiþkenlerine dayalý deðiþkenleri atayabilir.
 
 %prep
 %setup -q
-CFLAGS="$RPM_OPT_FLAGS" ./configure --prefix=/usr
+CFLAGS="$RPM_OPT_FLAGS" \
+./configure \
+	--prefix=/usr
 
 %build
 make
@@ -70,7 +72,7 @@ make PREFIX=$RPM_BUILD_ROOT install
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root)
+%defattr(644,root,root)
 /usr/lib/libpopt.a
 /usr/include/popt.h
 
