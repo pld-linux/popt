@@ -1,0 +1,12 @@
+diff -durN popt-1.9.orig/Makefile.am popt-1.9/Makefile.am
+--- popt-1.9.orig/Makefile.am	2004-12-18 21:43:30.632504464 +0100
++++ popt-1.9/Makefile.am	2004-12-18 21:44:41.187778432 +0100
+@@ -35,7 +35,7 @@
+ 
+ include_HEADERS = popt.h
+ 
+-usrlibdir = $(libdir)@MARK64@
++usrlibdir = $(libdir)
+ usrlib_LTLIBRARIES = libpopt.la
+ libpopt_la_SOURCES = popt.c findme.c poptparse.c poptconfig.c popthelp.c
+ 

@@ -18,6 +18,7 @@ Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
 Patch2:		%{name}-pl.po.patch
 Patch3:		%{name}-zh_CN.patch
+Patch4:		%{name}-libdir64.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.11.5
@@ -142,6 +143,7 @@ Biblioteka statyczna popt.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 mv -f po/zh_CN{.GB2312,}.po
 
@@ -165,14 +167,14 @@ autoupdate
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/lib
+install -d $RPM_BUILD_ROOT/%{_lib}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
 rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
-ln -sf /lib/`(cd $RPM_BUILD_ROOT/lib; echo *)` \
+ln -sf /%{_lib}/`(cd $RPM_BUILD_ROOT/%{_lib}; echo *)` \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 
 %find_lang %{name}
@@ -185,7 +187,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) /lib/*
+%attr(755,root,root) /%{_lib}/*
 
 %files devel
 %defattr(644,root,root,755)
