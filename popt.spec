@@ -15,7 +15,7 @@ Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-cvs20010530.patch
 BuildRequires:	gettext-devel
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.50
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -105,7 +105,7 @@ libtoolize --force
 autoheader
 automake -a -i
 autoconf
-%configure2_50 \
+%configure \
 	--enable-shared
 %{__make}
 
