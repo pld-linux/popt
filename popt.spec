@@ -1,4 +1,3 @@
-%define snap 20030322
 Summary:	C library for parsing command line parameters
 Summary(de):	C-Library zum Parsen von Befehlszeilenparametern
 Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
@@ -6,10 +5,10 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.8
-Release:	0.%{snap}.1
+Release:	0.4	
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.%{snap}.tar.gz
+Source0:	http://ep09.kernel.pl/~djrzulf/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
 Patch2:		%{name}-pl.po.patch
