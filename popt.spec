@@ -67,14 +67,36 @@ wywoЁania a plikami konfiguracyjnymi oraz pozwala zamieniaФ ci╠gi
 znakСw na tablice typu argv[] z wykorzystaniem zasad znanych z powЁok
 (shelli).
 
+%description -l ru
+Popt - это библиотека C для разбора параметров командной строки. Она
+построена по образу и подобию функций getopt() и getopt_long(), но в
+отличие от последних позволяет более мощное расширение аргументов. Она
+может разбирать произвольные массивы в стиле argv[] и автоматически
+устанавливать переменные в зависимости от аргументов командной строки.
+Также она позволяет создавать алиасы через конфигурационные файлы и
+включает функции для разбора произвольных строк в массивах argv[] с
+использованием шелл-подобных правил.
+
 %description -l tr
 Popt, komut satЩrЩ parametrelerini ayrЩЧtЩran bir C arЧividir.
 GeliЧigЭzel argv[] tarzЩ dizileri ayrЩЧtЩrabilir ve otomatik olarak
 komut satЩrЩ deПiЧkenlerine dayalЩ deПiЧkenleri atayabilir.
 
+%description -l uk
+Popt - це б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки. Вона
+побудована на кшталт функц╕й getopt() та getopt_long(), але на в╕дм╕ну
+в╕д останн╕х дозволя╓ б╕льш потужне розширення аргумент╕в. Вона може
+розбирати дов╕льн╕ масиви в стил╕ argv[] та автоматично встановлювати
+зм╕нн╕ в залежност╕ в╕д аргумент╕в командно╖ стр╕чки. Також вона
+дозволя╓ створювати ал╕аси через конф╕гурац╕йн╕ файли та м╕стить
+функц╕╖ для розбору дов╕льних стр╕чок в масивах argv[] з використанням
+шелл-под╕бних правил.
+
 %package devel
 Summary:	Header file and documentation for popt development
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja dla popt
+Summary(ru):	Хедеры и библиотека, необходимые для программирования с popt
+Summary(uk):	Хедери та б╕бл╕отека, необх╕дн╕ для програмування з popt
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -84,9 +106,19 @@ Header file and documentation for popt development.
 %description devel -l pl
 Pliki nagЁСwkowe i dokumentacja dla popt.
 
+%description devel -l ru
+Этот пакет содержит библиотеку и хедеры, необходимые для разработки
+программ, использующих popt.
+
+%description devel -l uk
+Цей пакет м╕стить б╕бл╕отеку та хедери, необх╕дн╕ для розробки
+програм, що використовують popt.
+
 %package static
 Summary:	Static library for popt development
 Summary(pl):	Biblioteka statyczna popt
+Summary(ru):	Статические библиотеки popt
+Summary(uk):	Статичн╕ б╕бл╕отеки popt
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -95,6 +127,14 @@ Static library for popt development.
 
 %description static -l pl
 Biblioteka statyczna popt.
+
+%description static -l ru
+Это отдельный пакет со статическими библиотеками, которые больше не
+входят в popt-devel.
+
+%description static -l uk
+Це окремий пакет з╕ статичними б╕бл╕отеками, що б╕льше не входять в
+склад popt-devel.
 
 %prep
 %setup -q
@@ -127,7 +167,8 @@ autoupdate
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/lib
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
