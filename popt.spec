@@ -11,6 +11,7 @@ License:	LGPL
 Group:		Libraries
 #Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.%{snap}.tar.gz
 Source0:	%{name}-%{version}.%{snap}.tar.gz
+# Source0-md5:	bd43546659a4b6b1b462f62ace22a0d7
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
 Patch2:		%{name}-pl.po.patch
