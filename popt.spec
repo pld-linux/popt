@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.6.2
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -13,6 +13,7 @@ Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
+Patch1:		%{name}-cvs20010530.patch
 BuildRequires:	gettext-devel
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -95,10 +96,16 @@ Biblioteka statyczna do popt.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p2
 
 %build
+rm missing
+autoupdate
+libtoolize --force
+autoheader
+automake -a -i
 autoconf
-%configure \
+%configure2_50 \
 	--enable-shared
 %{__make}
 
