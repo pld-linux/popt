@@ -8,7 +8,7 @@ Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ C ÄÌÑ ÒÏÚÂÏÒÕ ÐÁÒÁÍÅÔÒ¦× ËÏÍÁÎÄÎÏ§ ÓÔÒ¦ÞËÉ
 Name:		popt
 Version:	1.9
-Release:	0.%{snap}.4
+Release:	0.%{snap}.5
 License:	LGPL
 Group:		Libraries
 #Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.%{snap}.tar.gz
@@ -17,8 +17,7 @@ Source0:	%{name}-%{version}.%{snap}.tar.gz
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
 Patch2:		%{name}-pl.po.patch
-Patch3:		%{name}-zh_CN.patch
-Patch4:		%{name}-libdir64.patch
+Patch3:		%{name}-libdir64.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.11.5
@@ -143,7 +142,6 @@ Biblioteka statyczna popt.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 mv -f po/{zh_CN.GB2312,zh_CN}.po
 mv -f po/{no,nb}.po
