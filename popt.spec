@@ -1,5 +1,5 @@
 Summary:	C library for parsing command line parameters
-Summary(de):	C-Library zum Parsen von Befehlszeilenparametern 
+Summary(de):	C-Library zum Parsen von Befehlszeilenparametern
 Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
 Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
