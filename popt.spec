@@ -71,20 +71,20 @@ Geliþigüzel argv[] tarzý dizileri ayrýþtýrabilir ve otomatik olarak
 komut satýrý deðiþkenlerine dayalý deðiþkenleri atayabilir.
 
 %package devel
-Summary:	Header file and library for popt development
-Summary(pl):	Pliki nag³ówkowe dla popt
+Summary:	Header file and documentation for popt development
+Summary(pl):	Pliki nag³ówkowe i dokumentacja dla popt
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-Header file and library for popt development.
+Header file and documentation for popt development.
 
 %description devel -l pl
 Pliki nag³ówkowe i dokumentacja dla popt.
 
 %package static
 Summary:	Static library for popt development
-Summary(pl):	Biblioteka statyczna do popt
+Summary(pl):	Biblioteka statyczna popt
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -92,7 +92,7 @@ Requires:	%{name}-devel = %{version}
 Static library for popt development.
 
 %description static -l pl
-Biblioteka statyczna do popt.
+Biblioteka statyczna popt.
 
 %prep
 %setup -q
