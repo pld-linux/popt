@@ -97,7 +97,7 @@ rm -f missing
 %{__libtoolize}
 %{__aclocal}
 autoupdate
-autoheader
+%{__autoheader}
 %{__autoconf}
 %{__automake}
 %configure \
