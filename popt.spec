@@ -7,7 +7,7 @@ Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
 Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
 Name:		popt
 Version:	1.10.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 # last version available separately:
