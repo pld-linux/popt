@@ -8,7 +8,7 @@ Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
 Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
 Name:		popt
 Version:	1.9
-Release:	0.%{snap}.2
+Release:	0.%{snap}.3
 License:	LGPL
 Group:		Libraries
 #Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.%{snap}.tar.gz
