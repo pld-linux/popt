@@ -88,7 +88,7 @@ Biblioteka statyczna do popt
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr \
 	--enable-shared
 
