@@ -129,33 +129,3 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libpopt.a
 %{_libdir}/libpopt.la
-
-%changelog
-* Thu May 20 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [1.3-2]
-- some macros,
-- fixes for correct build,
-- stripping of shared lib.
-
-* Wed Apr 21 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.3-1]
-- updated to 1.3,
-- changed Group to Libraries,
-- added Group(pl),
-- DESTDIR instead of PREFIX in make install,
-- added man pages in %files,
-- gzipping man pages,
-- ./configure moved from %setup to %build,
-- added --disable-shared to configure options,
-- added "rm -rf $RPM_BUILD_ROOT" in %install,
-- cosmetic changes,
-- recompiled on rpm 3.
-
-* Sat Aug 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [1.1.1-3]
-- added -q %setup parameter,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- added pl translation,
-- global %defattr macro instead %attr macros in %files.
-- start at RH spec.
