@@ -112,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%lang(ro) /usr/share/locale/ro/LC_MESSAGES/*
+%lang(ro) %{_datadir}/locale/ro/LC_MESSAGES/*
 %attr(755,root,root) /lib/*
 
 %files devel
