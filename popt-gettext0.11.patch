@@ -1,38 +1,15 @@
---- popt-1.6.4/configure.in.wiget	Mon Dec  3 21:46:28 2001
-+++ popt-1.6.4/configure.in	Thu Aug  8 16:59:22 2002
-@@ -82,5 +82,4 @@
- AC_DEFINE_UNQUOTED(POPT_SOURCE_PATH, "$POPT_SOURCE_PATH")
- AC_SUBST(POPT_SOURCE_PATH)
+--- popt-1.7/configure.in.wiget	Thu Sep 19 02:09:30 2002
++++ popt-1.7/configure.in	Thu Sep 19 02:14:19 2002
+@@ -5,7 +5,7 @@
+ AM_INIT_AUTOMAKE(popt, 1.7)
+ AM_CONFIG_HEADER(config.h)
  
--AC_OUTPUT([Doxyfile Makefile intl/Makefile po/Makefile.in],
--	[sed -e "/POTFILES =/r po/POTFILES" po/Makefile.in > po/Makefile])
-+AC_OUTPUT([Doxyfile Makefile po/Makefile.in m4/Makefile ])
---- popt-1.6.4/Makefile.am.wiget	Thu May  3 16:29:03 2001
-+++ popt-1.6.4/Makefile.am	Thu Aug  8 16:57:43 2002
-@@ -2,12 +2,12 @@
+-ALL_LINGUAS="cs da de es eu_ES fi fr gl hu id is it ja ko no pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN.GB2312"
++ALL_LINGUAS="cs da es gl hu is ko no pt ro ru sk sl sv tr uk wa zh_CN.GB2312"
  
- AUTOMAKE_OPTIONS = 1.4 foreign
+ AC_ISC_POSIX
  
--EXTRA_DIST = autogen.sh CHANGES $(man_MANS) popt.spec \
-+EXTRA_DIST = config.rpath  autogen.sh CHANGES $(man_MANS) popt.spec \
- 	testit.sh test-poptrc \
- 	po/*.in po/*.po po/popt.pot \
- 	popt.ps
- 
--SUBDIRS = intl po
-+SUBDIRS = m4  po
- 
- INCLUDES = -I$(top_srcdir)
- 
-@@ -66,3 +66,5 @@
- 	rm -rf doxygen
- 	mkdir -p doxygen
- 	doxygen
-+
-+ACLOCAL_AMFLAGS = -I m4
---- popt-1.6.4/configure.in.wiget	Thu Aug  8 17:17:38 2002
-+++ popt-1.6.4/configure.in	Thu Aug  8 17:18:06 2002
-@@ -77,7 +77,7 @@
+@@ -78,11 +78,11 @@
      AC_CHECK_LIB(ucb, setreuid, [if echo $LIBS | grep -- -lucb >/dev/null ;then :; else LIBS="$LIBS -lc -lucb" USEUCB=y;fi])
  ])
  
@@ -40,15 +17,32 @@
 +AM_GNU_GETTEXT([external])
  
  POPT_SOURCE_PATH="`pwd`"
- AC_DEFINE_UNQUOTED(POPT_SOURCE_PATH, "$POPT_SOURCE_PATH")
---- popt-1.6.4/configure.in.wiget	Thu Aug  8 17:28:30 2002
-+++ popt-1.6.4/configure.in	Thu Aug  8 17:28:49 2002
-@@ -3,7 +3,7 @@
- AC_PREREQ(2.12)
- AC_CANONICAL_SYSTEM
- AM_INIT_AUTOMAKE(popt, 1.6.4)
--ALL_LINGUAS="cs da de es eu_ES fi fr gl hu id is it ja ko no pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN.GB2312"
-+ALL_LINGUAS="cs da es gl hu is ko no pt ro ru sk sl sv tr uk wa zh_CN.GB2312"
+ AC_DEFINE_UNQUOTED(POPT_SOURCE_PATH, "$POPT_SOURCE_PATH",
+ 	[Full path to popt top_sourcedir.])
+ AC_SUBST(POPT_SOURCE_PATH)
  
- AC_ISC_POSIX
+-AC_OUTPUT([Doxyfile Makefile intl/Makefile po/Makefile.in])
++AC_OUTPUT([Doxyfile Makefile m4/Makefile po/Makefile.in])
+--- popt-1.7/Makefile.am.wiget	Thu Sep 19 02:09:38 2002
++++ popt-1.7/Makefile.am	Thu Sep 19 02:13:02 2002
+@@ -2,12 +2,12 @@
  
+ AUTOMAKE_OPTIONS = 1.4 foreign
+ 
+-EXTRA_DIST = autogen.sh CHANGES $(man_MANS) popt.spec \
++EXTRA_DIST = config.rpath autogen.sh CHANGES $(man_MANS) popt.spec \
+ 	testit.sh test-poptrc \
+ 	po/*.in po/*.po po/popt.pot \
+ 	popt.ps
+ 
+-SUBDIRS = intl po
++SUBDIRS = m4 po
+ 
+ INCLUDES = -I. -I$(top_srcdir)
+ 
+@@ -74,3 +74,5 @@
+ 	rm -rf doxygen
+ 	mkdir -p doxygen
+ 	doxygen
++
++ACLOCAL_AMFLAGS = -I m4
