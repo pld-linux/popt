@@ -4,13 +4,13 @@ Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
 Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
-Version:	1.6.2
-Release:	3
+Version:	1.6.4
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
-Patch1:		%{name}-cvs20010530.patch
+Patch1:		%{name}-ff.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -89,16 +89,17 @@ Biblioteka statyczna do popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p2
+%patch1 -p1
 
 %build
 rm -f missing
-autoupdate
+%{__gettextize}
 %{__libtoolize}
-aclocal
+%{__aclocal}
+autoupdate
 autoheader
 %{__autoconf}
-automake -a -c -i
+%{__automake}
 %configure \
 	--enable-shared
 %{__make}
