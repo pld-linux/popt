@@ -20,7 +20,6 @@ BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	gettext-devel >= 0.11.5
 BuildRequires:	libtool
-BuildRequires:	glibc-static
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # don't require very fresh rpm.macros to build
@@ -99,7 +98,7 @@ Biblioteka statyczna popt.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1 -b .orig
+%patch2 -p1
 %patch3 -p1
 
 mv -f po/zh_CN{.GB2312,}.po
@@ -115,7 +114,12 @@ autoupdate
 %{__automake} -i
 %configure \
 	--enable-shared
-%{__make}
+
+# no reason to link tests statically - omit -all-static
+%{__make} \
+	test1_LDFLAGS="" \
+	test2_LDFLAGS="" \
+	test3_LDFLAGS=""
 
 %install
 rm -rf $RPM_BUILD_ROOT
