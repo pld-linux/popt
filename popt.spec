@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.7
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.tar.gz
@@ -117,7 +117,7 @@ install -d $RPM_BUILD_ROOT/lib
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
-ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
+ln -sf /lib/`(cd $RPM_BUILD_ROOT/lib; echo *)` \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 
 %find_lang %{name}
