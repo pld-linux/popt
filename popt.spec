@@ -98,7 +98,7 @@ Summary(pl):	Pliki nagЁСwkowe i dokumentacja dla popt
 Summary(ru):	Хедеры и библиотека, необходимые для программирования с popt
 Summary(uk):	Хедери та б╕бл╕отека, необх╕дн╕ для програмування з popt
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header file and documentation for popt development.
@@ -120,7 +120,7 @@ Summary(pl):	Biblioteka statyczna popt
 Summary(ru):	Статические библиотеки popt
 Summary(uk):	Статичн╕ б╕бл╕отеки popt
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static library for popt development.
