@@ -4,17 +4,17 @@ Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
 Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
-Version:	1.6.4
-Release:	2
+Version:	1.7
+Release:	0.1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
-Patch1:		%{name}-ff.patch
+Patch2:		%{name}-gettext0.11.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel >= 0.11.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -89,17 +89,20 @@ Biblioteka statyczna do popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
-%{__gettextize}
-%{__libtoolize}
-%{__aclocal}
+%{__gettextize} --no-changelog
+mv Makefile.am~ Makefile.am
+mv configure.in~ configure.in
+[ -f po/Makevars ] || cp po/Makevars.template po/Makevars
 autoupdate
-%{__autoheader}
+libtoolize --force
+autoheader
+%{__aclocal}
 %{__autoconf}
-%{__automake}
+%{__automake} -i
 %configure \
 	--enable-shared
 %{__make}
