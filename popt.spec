@@ -3,7 +3,9 @@ Summary:	C library for parsing command line parameters
 Summary(de):	C-Library zum Parsen von Befehlszeilenparametern
 Summary(fr):	BibliothХque C pour analyser les paramХtres de la ligne de commande
 Summary(pl):	Biblioteka C do przetwarzania parametrСw przekazywanych do programСw w linii poleceЯ
+Summary(ru):	Библиотека C для разбора параметров командной строки
 Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
+Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
 Name:		popt
 Version:	1.9
 Release:	0.%{snap}.2
