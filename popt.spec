@@ -8,6 +8,7 @@ Version:	1.8
 Release:	0.4	
 License:	LGPL
 Group:		Libraries
+# Source0-md5:	372b5fa8ab26c04ea565e07e5ceaad81
 Source0:	http://ep09.kernel.pl/~djrzulf/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
