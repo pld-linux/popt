@@ -94,10 +94,11 @@ Biblioteka statyczna do popt.
 %build
 rm -f missing
 autoupdate
-libtoolize --force
+libtoolize --copy --force
+aclocal
 autoheader
-automake -a -i
 autoconf
+automake -a -c -i
 %configure \
 	--enable-shared
 %{__make}
