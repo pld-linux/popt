@@ -9,6 +9,7 @@ Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
+# Source0-md5:	734b375abdcc6bf70541d0bef8147449
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-ff.patch
 Patch2:		%{name}-po.patch
@@ -56,7 +57,7 @@ typu argv[] i automatycznie ustawiaæ zmienne w oparciu i parametry
 wywo³ania. Pozwala tak¿e na tworzenie zwi±zków pomiêdzy argumentami
 wywo³ania a plikami konfiguracyjnymi oraz pozwala zamieniaæ ci±gi
 znaków na tablice typu argv[] z wykorzystaniem zasad znanych z pow³ok
-(shell'i).
+(shelli).
 
 %description -l tr
 Popt, komut satýrý parametrelerini ayrýþtýran bir C arþividir.
@@ -85,7 +86,7 @@ Requires:	%{name}-devel = %{version}
 Static library for popt development.
 
 %description static -l pl
-Biblioteka statyczna do popt.
+Biblioteka statyczna popt.
 
 %prep
 %setup -q
@@ -128,8 +129,8 @@ done
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
