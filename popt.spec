@@ -9,13 +9,19 @@ Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-cvs20010530.patch
-BuildRequires:	gettext-devel
 BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
+BuildRequires:	libtool
+BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,8 +74,12 @@ Summary:	Header file and library for popt development
 Summary(pl):	Pliki nagЁСwkowe dla popt
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -83,8 +93,12 @@ Summary:	Static library for popt development
 Summary(pl):	Biblioteka statyczna do popt
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -99,7 +113,7 @@ Biblioteka statyczna do popt.
 %patch1 -p2
 
 %build
-rm missing
+rm -f missing
 autoupdate
 libtoolize --force
 autoheader
@@ -122,11 +136,11 @@ ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
 
 %find_lang %{name}
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
