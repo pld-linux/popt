@@ -6,7 +6,7 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.9
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 License:	LGPL
 Group:		Libraries
 #Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.%{snap}.tar.gz
