@@ -57,6 +57,32 @@ Popt, komut satýrý parametrelerini ayrýþtýran bir C arþividir. Geliþigüzel
 argv[] tarzý dizileri ayrýþtýrabilir ve otomatik olarak komut satýrý
 deðiþkenlerine dayalý deðiþkenleri atayabilir.
 
+%package devel
+Summary:	Header file and library for popt development
+Summary(pl):	Pliki nag³ówkowe dla popt
+Group:          Development/Libraries
+Group(pl):      Programowanie/Biblioteki
+Requires:       %{name} = %{version}
+
+%description devel
+Header file and library for popt development
+
+%description devel -l pl
+Pliki nag³ówkowe i dokumentacja dla popt
+
+%package static
+Summary:        Static library for popt development
+Summary(pl):    Biblioteka statyczna do popt
+Group:          Development/Libraries
+Group(pl):      Programowanie/Biblioteki
+Requires:       %{name}-devel = %{version}
+
+%description static
+Static library for popt development
+
+%description static -l pl
+Biblioteka statyczna do popt
+
 %prep
 %setup -q
 
@@ -64,24 +90,41 @@ deðiþkenlerine dayalý deðiþkenleri atayabilir.
 CFLAGS="$RPM_OPT_FLAGS" \
 ./configure \
 	--prefix=/usr \
-	--disable-shared
+	--enable-shared
 
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/lib
+
 make DESTDIR=$RPM_BUILD_ROOT install
 
+mv -f $RPM_BUILD_ROOT/usr/lib/lib*.so.*.* $RPM_BUILD_ROOT/lib
+rm -f $RPM_BUILD_ROOT/usr/lib/lib*.so
+ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
+	$RPM_BUILD_ROOT/usr/lib/libpopt.so
+	
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man3/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644,root,root)
-/usr/lib/libpopt.a
-/usr/include/popt.h
+%defattr(644,root,root,755)
+%lang(ro) /usr/share/locale/ro/LC_MESSAGES/*
+%attr(755,root,root) /lib/*
+
+%files devel
+%defattr(644,root,root,755)
+/usr/lib/libpopt.so
 /usr/man/man3/popt.3.gz
+/usr/include/popt.h
+
+%files static
+%defattr(644,root,root,755)
+/usr/lib/libpopt.a
+/usr/lib/libpopt.la
 
 %changelog
 * Wed Apr 21 1999 Piotr Czerwiñski <pius@pld.org.pl>
