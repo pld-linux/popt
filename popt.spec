@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.3
-Release:	2
+Release:	3
 Copyright:	LGPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -57,7 +57,7 @@ Popt, komut satýrý parametrelerini ayrýþtýran bir C arþividir. Geliþigüzel
 argv[] tarzý dizileri ayrýþtýrabilir ve otomatik olarak komut satýrý
 deðiþkenlerine dayalý deðiþkenleri atayabilir.
 
-%package devel
+%package	devel
 Summary:	Header file and library for popt development
 Summary(pl):	Pliki nag³ówkowe dla popt
 Group:          Development/Libraries
@@ -70,7 +70,7 @@ Header file and library for popt development
 %description devel -l pl
 Pliki nag³ówkowe i dokumentacja dla popt
 
-%package static
+%package	static
 Summary:        Static library for popt development
 Summary(pl):    Biblioteka statyczna do popt
 Group:          Development/Libraries
@@ -88,9 +88,9 @@ Biblioteka statyczna do popt
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" \
-./configure %{_target} \
-	--prefix=/usr \
-	--enable-shared
+    ./configure \
+	--prefix=%{_prefix} \
+	--enable-shared %{_target_platform}
 
 make
 
@@ -98,12 +98,17 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/lib
 
-make DESTDIR=$RPM_BUILD_ROOT install
+make \
+    DESTDIR=$RPM_BUILD_ROOT \
+    mandir=%{_mandir} \
+    install
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
 ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
+
+strip --strip-unneeded $RPM_BUILD_ROOT/lib*.so.*.*
 	
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 
@@ -112,8 +117,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%lang(ro) %{_datadir}/locale/ro/LC_MESSAGES/*
 %attr(755,root,root) /lib/*
+%lang(ro) %{_datadir}/locale/ro/LC_MESSAGES/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -127,6 +132,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libpopt.la
 
 %changelog
+* Thu May 20 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+  [1.3-2]
+- some macros,
+- fixes for correct build,
+- stripping of shared lib.
+
 * Wed Apr 21 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.3-1]
 - updated to 1.3,
@@ -148,9 +159,4 @@ rm -rf $RPM_BUILD_ROOT
 - added using %%{name} and %%{version} in Source,
 - added pl translation,
 - global %defattr macro instead %attr macros in %files.
-
-* Thu May 07 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Thu Apr 09 1998 Erik Troan <ewt@redhat.com>
-- added ./configure step to spec file
+- start at RH spec.
