@@ -25,7 +25,7 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # don't require very fresh rpm.macros to build
-%define         __gettextize gettextize --copy --force --intl ; cp -f po/Makevars{.template,}
+%define		__gettextize	gettextize --copy --force --intl ; cp -f po/Makevars{.template,}
 
 %description
 Popt is a C library for passing command line parameters. It was heavily
@@ -180,8 +180,8 @@ ln -sf /%{_lib}/`(cd $RPM_BUILD_ROOT/%{_lib}; echo *)` \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
