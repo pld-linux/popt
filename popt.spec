@@ -43,14 +43,13 @@ chaînes arbitraires dans les tableaux argv[] en utilisant des règles
 à la shell
 
 %description -l pl
-Popt jest bibliotek± C s³u¿±c± 
-Popt is a C library for pasing command line parameters. It was heavily
-influenced by the getopt() and getopt_long() functions, but it allows
-more powerfull argument expansion. It can parse arbitrary argv[] style
-arrays and automatically set variables based on command line arguments.
-It also allows command line arguments to be aliased via configuration
-files and includes utility functions for parsing arbitrary strings into
-argv[] arrays using shell-like rules. 
+Popt jest bibliotek± C s³u¿±c± przetwarzaniu parametrów wywo³ania. Du¿y
+wp³yw mia³y na ni± getopt() i getopt_long(), ale ma od nich znacznie
+wiêksze mo¿liwo¶ci. Mo¿e przetwarzaæ bezpo¶rednio tablice typu argv[] i
+automatycznie ustawiaæ zmienne w oparciu i parametry wywo³ania. Pozwala
+tak¿e na tworzenie zwi±zków pomiêdzy argumentami wywo³ania a plikami
+konfiguracyjnymi oraz pozwala zamieniaæ ci±gi znaków na tablice typu
+argv[] z wykorzystaniem zasad znanych z pow³ok (shell'i).
 
 %description -l tr
 Popt, komut satýrý parametrelerini ayrýþtýran bir C arþividir. Geliþigüzel
