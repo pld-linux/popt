@@ -11,6 +11,7 @@ Group:		Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.redhat.com/pub/redhat/code/popt/%{name}-%{version}.tar.gz
+BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
