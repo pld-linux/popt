@@ -26,9 +26,9 @@
  	doxygen
 +
 +ACLOCAL_AMFLAGS = -I m4
---- popt-1.9/po/es.po.orig	2003-05-15 19:06:03.000000000 +0200
-+++ popt-1.9/po/es.po	2004-02-01 20:13:26.443228280 +0100
-@@ -2,17 +2,16 @@
+--- popt-1.10.1/po/es.po.orig	2005-02-14 00:00:35.000000000 +0100
++++ popt-1.10.1/po/es.po	2005-02-18 10:37:35.000000000 +0100
+@@ -2,18 +2,17 @@
  # Copyright (C) YEAR Free Software Foundation, Inc.
  # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
  #
@@ -36,9 +36,10 @@
  msgid ""
  msgstr ""
  "Project-Id-Version: popt 1.6.3\n"
- "POT-Creation-Date: 2003-05-15 18:57+0200\n"
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2004-02-29 07:48-0500\n"
 -"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-+"PO-Revision-Date: 2003-05-15 18:57+0200\n"
++"PO-Revision-Date: 2004-02-29 07:48-0500\n"
  "Last-Translator: Leandro Lucarella <luca@linuxmendoza.org.ar>\n"
 -"Language-Team: LANGUAGE <LL@li.org>\n"
 +"Language-Team: Spanish\n"
