@@ -10,11 +10,11 @@ License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
-Patch2:		%{name}-gettext0.11.patch
+Patch1:		%{name}-gettext0.11.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	gettext-devel >= 0.11.5
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -89,7 +89,7 @@ Biblioteka statyczna do popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch2 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -98,8 +98,8 @@ mv Makefile.am~ Makefile.am
 mv configure.in~ configure.in
 [ -f po/Makevars ] || cp po/Makevars.template po/Makevars
 autoupdate
-libtoolize --force
-autoheader
+%{__libtoolize}
+%{__autoheader}
 %{__aclocal}
 %{__autoconf}
 %{__automake} -i
