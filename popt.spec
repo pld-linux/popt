@@ -94,7 +94,7 @@ Biblioteka statyczna do popt
 autoconf
 %configure \
 	--enable-shared
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
