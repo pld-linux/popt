@@ -4,8 +4,8 @@ Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
 Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
-Version:	1.4
-Release:	3
+Version:	1.5
+Release:	1
 License:	LGPL
 Group:		Libraries
 Group(fr):	Librairies
