@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.3
-Release:	3
+Release:	4
 Copyright:	LGPL
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -88,11 +88,8 @@ Biblioteka statyczna do popt
 
 %build
 autoconf
-CFLAGS="$RPM_OPT_FLAGS" \
-./configure \
-	--prefix=%{_prefix} \
-	--enable-shared %{_target_platform}
-
+%configure \
+	--enable-shared
 make
 
 %install
@@ -122,10 +119,10 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libpopt.so
+%attr(755,root,root) %{_libdir}/libpopt.la
 %{_mandir}/man3/popt.3.gz
 %{_includedir}/popt.h
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libpopt.a
-%{_libdir}/libpopt.la
