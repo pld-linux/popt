@@ -110,13 +110,14 @@ strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 
+%find_lang popt
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f popt.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) /lib/*
-%lang(ro) %{_datadir}/locale/ro/LC_MESSAGES/*
 
 %files devel
 %defattr(644,root,root,755)
