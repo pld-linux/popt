@@ -117,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-/usr/lib/libpopt.so
+%attr(755,root,root) /usr/lib/libpopt.so
 /usr/man/man3/popt.3.gz
 /usr/include/popt.h
 
