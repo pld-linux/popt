@@ -1,15 +1,16 @@
 Summary:     C library for parsing command line parameters
 Summary(de): C-Library zum Parsen von Befehlszeilenparametern 
 Summary(fr): Bibliothèque C pour analyser les paramètres de la ligne de commande
-Summary(pl): Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
-Summary(tr): Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
-Name:        popt
-Version:     1.1.1
-Release:     3
-Copyright:   LGPL
-Group:       Utilities/System
-Source:      ftp://ftp.redhat.com/pub/redhat/code/popt/%{name}-%{version}.tar.gz
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
+Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
+Name:		popt
+Version:	1.3
+Release:	1
+Copyright:	LGPL
+Group:		Libraries
+Group(pl):	Biblioteki
+Source:		ftp://ftp.redhat.com/pub/redhat/code/popt/%{name}-%{version}.tar.gz
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 Popt is a C library for pasing command line parameters. It was heavily
@@ -58,15 +59,20 @@ deðiþkenlerine dayalý deðiþkenleri atayabilir.
 
 %prep
 %setup -q
-CFLAGS="$RPM_OPT_FLAGS" \
-./configure \
-	--prefix=/usr
 
 %build
+CFLAGS="$RPM_OPT_FLAGS" \
+./configure \
+	--prefix=/usr \
+	--disable-shared
+
 make
 
 %install
-make PREFIX=$RPM_BUILD_ROOT install
+rm -rf $RPM_BUILD_ROOT
+make DESTDIR=$RPM_BUILD_ROOT install
+
+gzip -9nf $RPM_BUILD_ROOT/usr/man/man3/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -75,8 +81,23 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root)
 /usr/lib/libpopt.a
 /usr/include/popt.h
+/usr/man/man3/popt.3.gz
 
 %changelog
+* Wed Apr 21 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [1.3-1]
+- updated to 1.3,
+- changed Group to Libraries,
+- added Group(pl),
+- DESTDIR instead of PREFIX in make install,
+- added man pages in %files,
+- gzipping man pages,
+- ./configure moved from %setup to %build,
+- added --disable-shared to configure options,
+- added "rm -rf $RPM_BUILD_ROOT" in %install,
+- cosmetic changes,
+- recompiled on rpm 3.
+
 * Sat Aug 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.1.1-3]
 - added -q %setup parameter,
