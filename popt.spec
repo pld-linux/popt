@@ -5,12 +5,13 @@ Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programó
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
 Version:	1.6.4
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-ff.patch
+Patch2:		%{name}-po.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -90,6 +91,10 @@ Biblioteka statyczna do popt.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+
+mv -f po/zh_CN.GB2312.po po/zh_CN.po
+rm -f po/*.gmo
 
 %build
 rm -f missing
@@ -115,6 +120,9 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
 ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 
+for f in $RPM_BUILD_ROOT%{_datadir}/locale/{de,eu_ES,fi,fr,id,it,ja,pl,pt_BR,sr,zh}/LC_MESSAGES/rpm.mo ; do
+	[ "`file $f | sed -e 's/.*,//' -e 's/message.*//'`" -le 1 ] && rm -f $f
+done
 %find_lang %{name}
 
 %clean
