@@ -4,13 +4,14 @@ Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
 Summary(pl):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceñ
 Summary(tr):	Komut satýrý parametrelerini ayrýþtýrýmak için C arþivi
 Name:		popt
-Version:	1.5
+Version:	1.6
 Release:	1
 License:	LGPL
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
-Source0:	ftp://ftp.redhat.com/pub/redhat/code/popt/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
 BuildRequires:	gettext-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,29 +64,31 @@ komut satýrý deðiþkenlerine dayalý deðiþkenleri atayabilir.
 Summary:	Header file and library for popt development
 Summary(pl):	Pliki nag³ówkowe dla popt
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
-Header file and library for popt development
+Header file and library for popt development.
 
 %description devel -l pl
-Pliki nag³ówkowe i dokumentacja dla popt
+Pliki nag³ówkowe i dokumentacja dla popt.
 
 %package static
 Summary:	Static library for popt development
 Summary(pl):	Biblioteka statyczna do popt
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static library for popt development
+Static library for popt development.
 
 %description static -l pl
-Biblioteka statyczna do popt
+Biblioteka statyczna do popt.
 
 %prep
 %setup -q
@@ -106,10 +109,6 @@ mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
 ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
-
-strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 
 %find_lang %{name}
 
