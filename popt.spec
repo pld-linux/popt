@@ -94,7 +94,7 @@ Biblioteka statyczna do popt.
 %build
 rm -f missing
 autoupdate
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 autoheader
 %{__autoconf}
