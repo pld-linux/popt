@@ -105,7 +105,7 @@ rm -f $RPM_BUILD_ROOT/usr/lib/lib*.so
 ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
 	$RPM_BUILD_ROOT/usr/lib/libpopt.so
 	
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man3/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -118,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) /usr/lib/libpopt.so
-/usr/man/man3/popt.3.gz
+%{_mandir}/man3/popt.3.gz
 /usr/include/popt.h
 
 %files static
