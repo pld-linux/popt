@@ -1,0 +1,11 @@
+diff -Naru popt-1.6.clean/system.h popt-1.6/system.h
+--- popt-1.6.clean/system.h	Mon Oct 25 20:22:20 1999
++++ popt-1.6/system.h	Sun Mar 18 22:34:00 2001
+@@ -6,6 +6,7 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <limits.h>
++#include <float.h>
+ 
+ #if HAVE_MCHECK_H 
+ #include <mcheck.h>

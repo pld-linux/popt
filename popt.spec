@@ -12,6 +12,7 @@ Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.0.x/%{name}-%{version}.tar.gz
+Patch0:		%{name}-values.patch
 BuildRequires:	gettext-devel
 BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -93,6 +94,7 @@ Biblioteka statyczna do popt.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 autoconf
