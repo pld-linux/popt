@@ -95,10 +95,7 @@ Biblioteka statyczna do popt.
 
 %build
 rm -f missing
-%{__gettextize} --no-changelog
-mv Makefile.am~ Makefile.am
-mv configure.in~ configure.in
-[ -f po/Makevars ] || cp po/Makevars.template po/Makevars
+%{__gettextize}
 autoupdate
 %{__libtoolize}
 %{__autoheader}
