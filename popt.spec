@@ -57,7 +57,7 @@ Popt, komut satýrý parametrelerini ayrýþtýran bir C arþividir. Geliþigüzel
 argv[] tarzý dizileri ayrýþtýrabilir ve otomatik olarak komut satýrý
 deðiþkenlerine dayalý deðiþkenleri atayabilir.
 
-%package	devel
+%package devel
 Summary:	Header file and library for popt development
 Summary(pl):	Pliki nag³ówkowe dla popt
 Group:          Development/Libraries
@@ -70,7 +70,7 @@ Header file and library for popt development
 %description devel -l pl
 Pliki nag³ówkowe i dokumentacja dla popt
 
-%package	static
+%package static
 Summary:        Static library for popt development
 Summary(pl):    Biblioteka statyczna do popt
 Group:          Development/Libraries
@@ -87,8 +87,9 @@ Biblioteka statyczna do popt
 %setup -q
 
 %build
+autoconf
 CFLAGS="$RPM_OPT_FLAGS" \
-    ./configure \
+./configure \
 	--prefix=%{_prefix} \
 	--enable-shared %{_target_platform}
 
@@ -98,18 +99,15 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/lib
 
-make \
-    DESTDIR=$RPM_BUILD_ROOT \
-    mandir=%{_mandir} \
-    install
+make install DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
 rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
 ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 
-strip --strip-unneeded $RPM_BUILD_ROOT/lib*.so.*.*
-	
+strip --strip-unneeded $RPM_BUILD_ROOT/lib/lib*.so.*.*
+
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 
 %clean
