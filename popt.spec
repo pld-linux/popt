@@ -100,10 +100,10 @@ install -d $RPM_BUILD_ROOT/lib
 
 make DESTDIR=$RPM_BUILD_ROOT install
 
-mv -f $RPM_BUILD_ROOT/usr/lib/lib*.so.*.* $RPM_BUILD_ROOT/lib
-rm -f $RPM_BUILD_ROOT/usr/lib/lib*.so
+mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/lib
+rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
 ln -sf ../../lib/`( cd $RPM_BUILD_ROOT/lib; echo *)` \
-	$RPM_BUILD_ROOT/usr/lib/libpopt.so
+	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 	
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/*
 
@@ -117,14 +117,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/lib/libpopt.so
+%attr(755,root,root) %{_libdir}/libpopt.so
 %{_mandir}/man3/popt.3.gz
 /usr/include/popt.h
 
 %files static
 %defattr(644,root,root,755)
-/usr/lib/libpopt.a
-/usr/lib/libpopt.la
+%{_libdir}/libpopt.a
+%{_libdir}/libpopt.la
 
 %changelog
 * Wed Apr 21 1999 Piotr Czerwiñski <pius@pld.org.pl>
