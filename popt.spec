@@ -18,6 +18,9 @@ BuildRequires:	gettext-devel >= 0.11.5
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# don't require very fresh rpm.macros to build
+%define         __gettextize gettextize --copy --force --intl ; cp -f po/Makevars{.template,}
+
 %description
 Popt is a C library for pasing command line parameters. It was heavily
 influenced by the getopt() and getopt_long() functions, but it allows
