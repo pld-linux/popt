@@ -97,7 +97,7 @@ autoupdate
 libtoolize --copy --force
 aclocal
 autoheader
-autoconf
+%{__autoconf}
 automake -a -c -i
 %configure \
 	--enable-shared
