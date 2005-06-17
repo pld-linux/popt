@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# don't build static libraries
+#
 Summary:	C library for parsing command line parameters
 Summary(de):	C-Library zum Parsen von Befehlszeilenparametern
 Summary(fr):	Bibliothèque C pour analyser les paramètres de la ligne de commande
@@ -155,7 +159,8 @@ cd popt
 %{__aclocal}
 %{__autoconf}
 %{__automake} -i
-%configure
+%configure \
+	%{!?with_static_libs:--disable-static}
 
 %{__make}
 
@@ -191,6 +196,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/*
 %{_includedir}/popt.h
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libpopt.a
+%endif
