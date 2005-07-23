@@ -1,31 +1,14 @@
---- popt-1.8/configure.ac.wiget	Fri Dec 20 00:41:07 2002
-+++ popt-1.8/configure.ac	Thu Mar 27 22:47:24 2003
+--- popt-1.10.2/configure.ac.orig	2005-05-30 08:37:00.000000000 +0200
++++ popt-1.10.2/configure.ac	2005-07-23 12:57:57.741102776 +0200
 @@ -5,7 +5,7 @@
- AM_INIT_AUTOMAKE(popt, 1.8)
+ AM_INIT_AUTOMAKE(popt, 1.10.2)
  AM_CONFIG_HEADER(config.h)
  
--ALL_LINGUAS="cs da de es eu_ES fi fr gl hu id is it ja ko no pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN.GB2312"
-+ALL_LINGUAS="cs da es gl hu is ko nb pl pt ro ru sk sl sv tr uk wa zh_CN"
+-ALL_LINGUAS="cs da de es eu_ES fi fr gl hu id is it ja ko no pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN zh_TW"
++ALL_LINGUAS="cs da de es  fi fr gl hu id is it ja ko nb pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN zh_TW"
  
  AC_ISC_POSIX
  
---- popt-1.8/Makefile.am.wiget	Sun Dec  1 20:02:30 2002
-+++ popt-1.8/Makefile.am	Thu Mar 27 22:48:10 2003
-@@ -4,7 +4,7 @@
- 
- LINT = splint
- 
--EXTRA_DIST = autogen.sh CHANGES $(man_MANS) popt.spec \
-+EXTRA_DIST = config.rpath autogen.sh CHANGES $(man_MANS) popt.spec \
- 	testit.sh test-poptrc test3-data/0* \
- 	po/*.in po/*.po po/popt.pot \
- 	popt.ps
-@@ -78,3 +78,5 @@
- 	rm -rf doxygen
- 	mkdir -p doxygen
- 	doxygen
-+
-+ACLOCAL_AMFLAGS = -I m4
 --- popt-1.10.1/po/es.po.orig	2005-02-14 00:00:35.000000000 +0100
 +++ popt-1.10.1/po/es.po	2005-02-18 10:37:35.000000000 +0100
 @@ -2,18 +2,17 @@
