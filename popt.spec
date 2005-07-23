@@ -10,14 +10,12 @@ Summary(ru):	Библиотека C для разбора параметров командной строки
 Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
 Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
 Name:		popt
-Version:	1.10.1
-Release:	2
-License:	LGPL
+Version:	1.10.2
+Release:	1
+License:	X Consortium (MIT-like)
 Group:		Libraries
-# last version available separately:
-#Source0:	ftp://ftp.rpm.org/pub/rpm/dist/rpm-4.1.x/%{name}-%{version}.tar.gz
-Source0:	ftp://jbj.org/pub/rpm-4.4.x/rpm-4.4.1.tar.gz
-# Source0-md5:	90ded9047b1b69d918c6c7c7b56fd7a9
+Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
+# Source0-md5:	eebda70ee032989a243145135175e54d
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
 Patch2:		%{name}-pl.po.patch
@@ -141,18 +139,16 @@ Biblioteka statyczna popt.
 склад popt-devel.
 
 %prep
-%setup -q -n rpm-4.4.1
-cd popt
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 
-mv -f po/{zh_CN.GB2312,zh_CN}.po
+mv -f po/{eu_ES,eu}.po
 mv -f po/{no,nb}.po
 
 %build
-cd popt
 %{__gettextize}
 %{__libtoolize}
 %{__autoheader}
@@ -168,7 +164,7 @@ cd popt
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/%{_lib}
 
-%{__make} -C popt install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
@@ -186,7 +182,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc popt/{CHANGES,README}
+%doc CHANGES COPYING README
 %attr(755,root,root) /%{_lib}/libpopt.so.*.*.*
 
 %files devel
