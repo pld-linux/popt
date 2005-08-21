@@ -11,7 +11,7 @@ Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
 Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
 Name:		popt
 Version:	1.10.2
-Release:	1
+Release:	2
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
