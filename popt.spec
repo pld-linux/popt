@@ -10,12 +10,12 @@ Summary(ru):	Библиотека C для разбора параметров командной строки
 Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
 Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
 Name:		popt
-Version:	1.10.3
+Version:	1.10.4
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
-# Source0-md5:	b326ced1aafd83e208ab6dfa70d7084f
+# Source0-md5:	63b943522a6788ae8f756ca123d83c00
 Patch0:		%{name}-values.patch
 Patch1:		%{name}-gettext0.11.patch
 Patch2:		%{name}-pl.po.patch
