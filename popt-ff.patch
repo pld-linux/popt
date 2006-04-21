@@ -1,20 +1,0 @@
---- popt-1.6.4/acconfig.h.orig	Tue Dec 19 23:24:55 2000
-+++ popt-1.6.4/acconfig.h	Sat Mar 16 20:47:10 2002
-@@ -16,7 +16,7 @@
-    a given entry is in the file.
- 
-    Leave the following blank line there!!  Autoheader needs it.  */
--^L
-+
- 
- /* Define to the name of the distribution.  */
- #undef PACKAGE
-@@ -45,7 +45,7 @@
- /* Absolute path to popt top_sourcedir. */
- #undef POPT_SOURCE_PATH
- 
--^L
-+
- /* Leave that blank line there!!  Autoheader needs it.
-    If you're adding to this file, keep in mind:
-    The entries are in sort -df order: alphabetical, case insensitive,
