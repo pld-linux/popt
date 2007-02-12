@@ -3,12 +3,12 @@
 %bcond_without	static_libs	# don't build static libraries
 #
 Summary:	C library for parsing command line parameters
-Summary(de):	C-Library zum Parsen von Befehlszeilenparametern
-Summary(fr):	BibliothХque C pour analyser les paramХtres de la ligne de commande
-Summary(pl):	Biblioteka C do przetwarzania parametrСw przekazywanych do programСw w linii poleceЯ
-Summary(ru):	Библиотека C для разбора параметров командной строки
-Summary(tr):	Komut satЩrЩ parametrelerini ayrЩЧtЩrЩmak iГin C arЧivi
-Summary(uk):	Б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки
+Summary(de.UTF-8):   C-Library zum Parsen von Befehlszeilenparametern
+Summary(fr.UTF-8):   Bibliothц╗que C pour analyser les paramц╗tres de la ligne de commande
+Summary(pl.UTF-8):   Biblioteka C do przetwarzania parametrцЁw przekazywanych do programцЁw w linii poleceе└
+Summary(ru.UTF-8):   п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ C п╢п╩я▐ я─п╟п╥п╠п╬я─п╟ п©п╟я─п╟п╪п╣я┌я─п╬п╡ п╨п╬п╪п╟п╫п╢п╫п╬п╧ я│я┌я─п╬п╨п╦
+Summary(tr.UTF-8):   Komut satд╠rд╠ parametrelerini ayrд╠е÷tд╠rд╠mak iц╖in C arе÷ivi
+Summary(uk.UTF-8):   п▒я√п╠п╩я√п╬я┌п╣п╨п╟ C п╢п╩я▐ я─п╬п╥п╠п╬я─я┐ п©п╟я─п╟п╪п╣я┌я─я√п╡ п╨п╬п╪п╟п╫п╢п╫п╬я≈ я│я┌я─я√я┤п╨п╦
 Name:		popt
 Version:	1.10.7
 Release:	1
@@ -37,105 +37,105 @@ arguments. It also allows command line arguments to be aliased via
 configuration files and includes utility functions for parsing
 arbitrary strings into argv[] arrays using shell-like rules.
 
-%description -l de
+%description -l de.UTF-8
 Popt ist eine C-Library zum Parsen von Befehlszeilenparametern, stark
-beeinfluъt von den getopt() und getopt_long()-Funktionen, aber mit
-sehr viel besserer Argumenterweiterung. Es kЖnnen beliebige
+beeinfluц÷t von den getopt() und getopt_long()-Funktionen, aber mit
+sehr viel besserer Argumenterweiterung. Es kц╤nnen beliebige
 argv[]-Argument- Arrays geparst und Variablen auf der Basis von
-Befehlszeilenargumenten automatisch gesetzt werden. Ferner kЖnnen
-Befehlszeilenargumente Эber Konfigurationsdateien ge-aliast werden,
-und die Library enthДlt Utility- funktionen zum Parsen beliebiger
-Strings in argv[]-Arrays anhand von Shell-Дhnlichen Regeln.
+Befehlszeilenargumenten automatisch gesetzt werden. Ferner kц╤nnen
+Befehlszeilenargumente ц╪ber Konfigurationsdateien ge-aliast werden,
+und die Library enthц╓lt Utility- funktionen zum Parsen beliebiger
+Strings in argv[]-Arrays anhand von Shell-ц╓hnlichen Regeln.
 
-%description -l fr
-Popt est une bibliothХque C pour analyser les paramЙtres de la ligne
-de commande. Elle a ИtИ beaucoup influencИe par les fonctions getopt()
+%description -l fr.UTF-8
+Popt est une bibliothц╗que C pour analyser les paramц╙tres de la ligne
+de commande. Elle a ц╘tц╘ beaucoup influencц╘e par les fonctions getopt()
 et getopt_long() mais permet une expansion plus puissante des
 arguments. Elle peut analyser des tableaux arbitraires du style argv[]
 et configure les variables automatiquement selon les arguments de la
-ligne de commande. Elle permet aussi Ю ces arguments d'Йtre des alias
+ligne de commande. Elle permet aussi ц═ ces arguments d'ц╙tre des alias
 via des fichiers de configuration et inclut des fonctions utilitaires
-pour analyser des chaНnes arbitraires dans les tableaux argv[] en
-utilisant des rХgles Ю la shell
+pour analyser des chaц╝nes arbitraires dans les tableaux argv[] en
+utilisant des rц╗gles ц═ la shell
 
-%description -l pl
-Popt jest bibliotek╠ C sЁu©╠c╠ przetwarzaniu parametrСw wywoЁania.
-Du©y wpЁyw miaЁy na ni╠ getopt() i getopt_long(), ale ma od nich
-znacznie wiЙksze mo©liwo╤ci. Mo©e przetwarzaФ bezpo╤rednio tablice
-typu argv[] i automatycznie ustawiaФ zmienne w oparciu i parametry
-wywoЁania. Pozwala tak©e na tworzenie zwi╠zkСw pomiЙdzy argumentami
-wywoЁania a plikami konfiguracyjnymi oraz pozwala zamieniaФ ci╠gi
-znakСw na tablice typu argv[] z wykorzystaniem zasad znanych z powЁok
+%description -l pl.UTF-8
+Popt jest bibliotekд┘ C sе┌uе╪д┘cд┘ przetwarzaniu parametrцЁw wywoе┌ania.
+Duе╪y wpе┌yw miaе┌y na niд┘ getopt() i getopt_long(), ale ma od nich
+znacznie wiд≥ksze moе╪liwoе⌡ci. Moе╪e przetwarzaд┤ bezpoе⌡rednio tablice
+typu argv[] i automatycznie ustawiaд┤ zmienne w oparciu i parametry
+wywoе┌ania. Pozwala takе╪e na tworzenie zwiд┘zkцЁw pomiд≥dzy argumentami
+wywoе┌ania a plikami konfiguracyjnymi oraz pozwala zamieniaд┤ ciд┘gi
+znakцЁw na tablice typu argv[] z wykorzystaniem zasad znanych z powе┌ok
 (shelli).
 
-%description -l ru
-Popt - это библиотека C для разбора параметров командной строки. Она
-построена по образу и подобию функций getopt() и getopt_long(), но в
-отличие от последних позволяет более мощное расширение аргументов. Она
-может разбирать произвольные массивы в стиле argv[] и автоматически
-устанавливать переменные в зависимости от аргументов командной строки.
-Также она позволяет создавать алиасы через конфигурационные файлы и
-включает функции для разбора произвольных строк в массивах argv[] с
-использованием шелл-подобных правил.
+%description -l ru.UTF-8
+Popt - я█я┌п╬ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ C п╢п╩я▐ я─п╟п╥п╠п╬я─п╟ п©п╟я─п╟п╪п╣я┌я─п╬п╡ п╨п╬п╪п╟п╫п╢п╫п╬п╧ я│я┌я─п╬п╨п╦. п·п╫п╟
+п©п╬я│я┌я─п╬п╣п╫п╟ п©п╬ п╬п╠я─п╟п╥я┐ п╦ п©п╬п╢п╬п╠п╦я▌ я└я┐п╫п╨я├п╦п╧ getopt() п╦ getopt_long(), п╫п╬ п╡
+п╬я┌п╩п╦я┤п╦п╣ п╬я┌ п©п╬я│п╩п╣п╢п╫п╦я┘ п©п╬п╥п╡п╬п╩я▐п╣я┌ п╠п╬п╩п╣п╣ п╪п╬я┴п╫п╬п╣ я─п╟я│я┬п╦я─п╣п╫п╦п╣ п╟я─пЁя┐п╪п╣п╫я┌п╬п╡. п·п╫п╟
+п╪п╬п╤п╣я┌ я─п╟п╥п╠п╦я─п╟я┌я▄ п©я─п╬п╦п╥п╡п╬п╩я▄п╫я▀п╣ п╪п╟я│я│п╦п╡я▀ п╡ я│я┌п╦п╩п╣ argv[] п╦ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦
+я┐я│я┌п╟п╫п╟п╡п╩п╦п╡п╟я┌я▄ п©п╣я─п╣п╪п╣п╫п╫я▀п╣ п╡ п╥п╟п╡п╦я│п╦п╪п╬я│я┌п╦ п╬я┌ п╟я─пЁя┐п╪п╣п╫я┌п╬п╡ п╨п╬п╪п╟п╫п╢п╫п╬п╧ я│я┌я─п╬п╨п╦.
+п╒п╟п╨п╤п╣ п╬п╫п╟ п©п╬п╥п╡п╬п╩я▐п╣я┌ я│п╬п╥п╢п╟п╡п╟я┌я▄ п╟п╩п╦п╟я│я▀ я┤п╣я─п╣п╥ п╨п╬п╫я└п╦пЁя┐я─п╟я├п╦п╬п╫п╫я▀п╣ я└п╟п╧п╩я▀ п╦
+п╡п╨п╩я▌я┤п╟п╣я┌ я└я┐п╫п╨я├п╦п╦ п╢п╩я▐ я─п╟п╥п╠п╬я─п╟ п©я─п╬п╦п╥п╡п╬п╩я▄п╫я▀я┘ я│я┌я─п╬п╨ п╡ п╪п╟я│я│п╦п╡п╟я┘ argv[] я│
+п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦п╣п╪ я┬п╣п╩п╩-п©п╬п╢п╬п╠п╫я▀я┘ п©я─п╟п╡п╦п╩.
 
-%description -l tr
-Popt, komut satЩrЩ parametrelerini ayrЩЧtЩran bir C arЧividir.
-GeliЧigЭzel argv[] tarzЩ dizileri ayrЩЧtЩrabilir ve otomatik olarak
-komut satЩrЩ deПiЧkenlerine dayalЩ deПiЧkenleri atayabilir.
+%description -l tr.UTF-8
+Popt, komut satд╠rд╠ parametrelerini ayrд╠е÷tд╠ran bir C arе÷ividir.
+Geliе÷igц╪zel argv[] tarzд╠ dizileri ayrд╠е÷tд╠rabilir ve otomatik olarak
+komut satд╠rд╠ deд÷iе÷kenlerine dayalд╠ deд÷iе÷kenleri atayabilir.
 
-%description -l uk
-Popt - це б╕бл╕отека C для розбору параметр╕в командно╖ стр╕чки. Вона
-побудована на кшталт функц╕й getopt() та getopt_long(), але на в╕дм╕ну
-в╕д останн╕х дозволя╓ б╕льш потужне розширення аргумент╕в. Вона може
-розбирати дов╕льн╕ масиви в стил╕ argv[] та автоматично встановлювати
-зм╕нн╕ в залежност╕ в╕д аргумент╕в командно╖ стр╕чки. Також вона
-дозволя╓ створювати ал╕аси через конф╕гурац╕йн╕ файли та м╕стить
-функц╕╖ для розбору дов╕льних стр╕чок в масивах argv[] з використанням
-шелл-под╕бних правил.
+%description -l uk.UTF-8
+Popt - я├п╣ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ C п╢п╩я▐ я─п╬п╥п╠п╬я─я┐ п©п╟я─п╟п╪п╣я┌я─я√п╡ п╨п╬п╪п╟п╫п╢п╫п╬я≈ я│я┌я─я√я┤п╨п╦. п▓п╬п╫п╟
+п©п╬п╠я┐п╢п╬п╡п╟п╫п╟ п╫п╟ п╨я┬я┌п╟п╩я┌ я└я┐п╫п╨я├я√п╧ getopt() я┌п╟ getopt_long(), п╟п╩п╣ п╫п╟ п╡я√п╢п╪я√п╫я┐
+п╡я√п╢ п╬я│я┌п╟п╫п╫я√я┘ п╢п╬п╥п╡п╬п╩я▐я■ п╠я√п╩я▄я┬ п©п╬я┌я┐п╤п╫п╣ я─п╬п╥я┬п╦я─п╣п╫п╫я▐ п╟я─пЁя┐п╪п╣п╫я┌я√п╡. п▓п╬п╫п╟ п╪п╬п╤п╣
+я─п╬п╥п╠п╦я─п╟я┌п╦ п╢п╬п╡я√п╩я▄п╫я√ п╪п╟я│п╦п╡п╦ п╡ я│я┌п╦п╩я√ argv[] я┌п╟ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╫п╬ п╡я│я┌п╟п╫п╬п╡п╩я▌п╡п╟я┌п╦
+п╥п╪я√п╫п╫я√ п╡ п╥п╟п╩п╣п╤п╫п╬я│я┌я√ п╡я√п╢ п╟я─пЁя┐п╪п╣п╫я┌я√п╡ п╨п╬п╪п╟п╫п╢п╫п╬я≈ я│я┌я─я√я┤п╨п╦. п╒п╟п╨п╬п╤ п╡п╬п╫п╟
+п╢п╬п╥п╡п╬п╩я▐я■ я│я┌п╡п╬я─я▌п╡п╟я┌п╦ п╟п╩я√п╟я│п╦ я┤п╣я─п╣п╥ п╨п╬п╫я└я√пЁя┐я─п╟я├я√п╧п╫я√ я└п╟п╧п╩п╦ я┌п╟ п╪я√я│я┌п╦я┌я▄
+я└я┐п╫п╨я├я√я≈ п╢п╩я▐ я─п╬п╥п╠п╬я─я┐ п╢п╬п╡я√п╩я▄п╫п╦я┘ я│я┌я─я√я┤п╬п╨ п╡ п╪п╟я│п╦п╡п╟я┘ argv[] п╥ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐п╪
+я┬п╣п╩п╩-п©п╬п╢я√п╠п╫п╦я┘ п©я─п╟п╡п╦п╩.
 
 %package devel
 Summary:	Header file and documentation for popt development
-Summary(pl):	Pliki nagЁСwkowe i dokumentacja dla popt
-Summary(ru):	Хедеры и библиотека, необходимые для программирования с popt
-Summary(uk):	Хедери та б╕бл╕отека, необх╕дн╕ для програмування з popt
+Summary(pl.UTF-8):   Pliki nagе┌цЁwkowe i dokumentacja dla popt
+Summary(ru.UTF-8):   п╔п╣п╢п╣я─я▀ п╦ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟, п╫п╣п╬п╠я┘п╬п╢п╦п╪я▀п╣ п╢п╩я▐ п©я─п╬пЁя─п╟п╪п╪п╦я─п╬п╡п╟п╫п╦я▐ я│ popt
+Summary(uk.UTF-8):   п╔п╣п╢п╣я─п╦ я┌п╟ п╠я√п╠п╩я√п╬я┌п╣п╨п╟, п╫п╣п╬п╠я┘я√п╢п╫я√ п╢п╩я▐ п©я─п╬пЁя─п╟п╪я┐п╡п╟п╫п╫я▐ п╥ popt
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header file and documentation for popt development.
 
-%description devel -l pl
-Pliki nagЁСwkowe i dokumentacja dla popt.
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe i dokumentacja dla popt.
 
-%description devel -l ru
-Этот пакет содержит библиотеку и хедеры, необходимые для разработки
-программ, использующих popt.
+%description devel -l ru.UTF-8
+п╜я┌п╬я┌ п©п╟п╨п╣я┌ я│п╬п╢п╣я─п╤п╦я┌ п╠п╦п╠п╩п╦п╬я┌п╣п╨я┐ п╦ я┘п╣п╢п╣я─я▀, п╫п╣п╬п╠я┘п╬п╢п╦п╪я▀п╣ п╢п╩я▐ я─п╟п╥я─п╟п╠п╬я┌п╨п╦
+п©я─п╬пЁя─п╟п╪п╪, п╦я│п©п╬п╩я▄п╥я┐я▌я┴п╦я┘ popt.
 
-%description devel -l uk
-Цей пакет м╕стить б╕бл╕отеку та хедери, необх╕дн╕ для розробки
-програм, що використовують popt.
+%description devel -l uk.UTF-8
+п╕п╣п╧ п©п╟п╨п╣я┌ п╪я√я│я┌п╦я┌я▄ п╠я√п╠п╩я√п╬я┌п╣п╨я┐ я┌п╟ я┘п╣п╢п╣я─п╦, п╫п╣п╬п╠я┘я√п╢п╫я√ п╢п╩я▐ я─п╬п╥я─п╬п╠п╨п╦
+п©я─п╬пЁя─п╟п╪, я┴п╬ п╡п╦п╨п╬я─п╦я│я┌п╬п╡я┐я▌я┌я▄ popt.
 
 %package static
 Summary:	Static library for popt development
-Summary(pl):	Biblioteka statyczna popt
-Summary(ru):	Статические библиотеки popt
-Summary(uk):	Статичн╕ б╕бл╕отеки popt
+Summary(pl.UTF-8):   Biblioteka statyczna popt
+Summary(ru.UTF-8):   п║я┌п╟я┌п╦я┤п╣я│п╨п╦п╣ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ popt
+Summary(uk.UTF-8):   п║я┌п╟я┌п╦я┤п╫я√ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ popt
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static library for popt development.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna popt.
 
-%description static -l ru
-Это отдельный пакет со статическими библиотеками, которые больше не
-входят в popt-devel.
+%description static -l ru.UTF-8
+п╜я┌п╬ п╬я┌п╢п╣п╩я▄п╫я▀п╧ п©п╟п╨п╣я┌ я│п╬ я│я┌п╟я┌п╦я┤п╣я│п╨п╦п╪п╦ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟п╪п╦, п╨п╬я┌п╬я─я▀п╣ п╠п╬п╩я▄я┬п╣ п╫п╣
+п╡я┘п╬п╢я▐я┌ п╡ popt-devel.
 
-%description static -l uk
-Це окремий пакет з╕ статичними б╕бл╕отеками, що б╕льше не входять в
-склад popt-devel.
+%description static -l uk.UTF-8
+п╕п╣ п╬п╨я─п╣п╪п╦п╧ п©п╟п╨п╣я┌ п╥я√ я│я┌п╟я┌п╦я┤п╫п╦п╪п╦ п╠я√п╠п╩я√п╬я┌п╣п╨п╟п╪п╦, я┴п╬ п╠я√п╩я▄я┬п╣ п╫п╣ п╡я┘п╬п╢я▐я┌я▄ п╡
+я│п╨п╩п╟п╢ popt-devel.
 
 %prep
 %setup -q
