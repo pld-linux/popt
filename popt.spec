@@ -3,12 +3,12 @@
 %bcond_without	static_libs	# don't build static libraries
 #
 Summary:	C library for parsing command line parameters
-Summary(de.UTF-8):   C-Library zum Parsen von Befehlszeilenparametern
-Summary(fr.UTF-8):   Bibliothèque C pour analyser les paramètres de la ligne de commande
-Summary(pl.UTF-8):   Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceń
-Summary(ru.UTF-8):   Библиотека C для разбора параметров командной строки
-Summary(tr.UTF-8):   Komut satırı parametrelerini ayrıştırımak için C arşivi
-Summary(uk.UTF-8):   Бібліотека C для розбору параметрів командної стрічки
+Summary(de.UTF-8):	C-Library zum Parsen von Befehlszeilenparametern
+Summary(fr.UTF-8):	Bibliothèque C pour analyser les paramètres de la ligne de commande
+Summary(pl.UTF-8):	Biblioteka C do przetwarzania parametrów przekazywanych do programów w linii poleceń
+Summary(ru.UTF-8):	Библиотека C для разбора параметров командной строки
+Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
+Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
 Version:	1.10.7
 Release:	1
@@ -95,9 +95,9 @@ Popt - це бібліотека C для розбору параметрів к
 
 %package devel
 Summary:	Header file and documentation for popt development
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja dla popt
-Summary(ru.UTF-8):   Хедеры и библиотека, необходимые для программирования с popt
-Summary(uk.UTF-8):   Хедери та бібліотека, необхідні для програмування з popt
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja dla popt
+Summary(ru.UTF-8):	Хедеры и библиотека, необходимые для программирования с popt
+Summary(uk.UTF-8):	Хедери та бібліотека, необхідні для програмування з popt
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -117,9 +117,9 @@ Pliki nagłówkowe i dokumentacja dla popt.
 
 %package static
 Summary:	Static library for popt development
-Summary(pl.UTF-8):   Biblioteka statyczna popt
-Summary(ru.UTF-8):   Статические библиотеки popt
-Summary(uk.UTF-8):   Статичні бібліотеки popt
+Summary(pl.UTF-8):	Biblioteka statyczna popt
+Summary(ru.UTF-8):	Статические библиотеки popt
+Summary(uk.UTF-8):	Статичні бібліотеки popt
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
