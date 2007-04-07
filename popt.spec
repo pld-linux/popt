@@ -10,15 +10,15 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.10.7
+Version:	1.10.8
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
-Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
-# Source0-md5:	912f67c5995608109355ed0beb5125fa
+#Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
+Source0:	ftp://jbj.org/pub/rpm-4.4.x/rpm-4.4.8.tar.gz
+# Source0-md5:	dc73bcebf6b206058457c9a90f944c55
 Patch0:		%{name}-gettext0.11.patch
-Patch1:		%{name}-pl.po.patch
-Patch2:		%{name}-libdir64.patch
+Patch1:		%{name}-libdir64.patch
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
 BuildRequires:	gettext-devel >= 0.11.5
@@ -138,15 +138,16 @@ Biblioteka statyczna popt.
 склад popt-devel.
 
 %prep
-%setup -q
+%setup -q -n rpm-4.4.8
+cd popt
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 mv -f po/{eu_ES,eu}.po
 mv -f po/{no,nb}.po
 
 %build
+cd popt
 %{__gettextize}
 %{__libtoolize}
 %{__autoheader}
@@ -162,7 +163,7 @@ mv -f po/{no,nb}.po
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/%{_lib}
 
-%{__make} install \
+%{__make} -C popt install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
@@ -180,7 +181,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGES COPYING README
+#%doc CHANGES COPYING README
+%doc popt/{CHANGES,COPYING,README}
 %attr(755,root,root) /%{_lib}/libpopt.so.*.*.*
 
 %files devel
