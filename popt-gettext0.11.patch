@@ -10,9 +10,8 @@ diff -urN popt-1.10.7/configure.ac popt-1.10.7.new/configure.ac
  
  AC_ISC_POSIX
  
-diff -urN popt-1.10.7/po/es.po popt-1.10.7.new/po/es.po
---- popt-1.10.7/po/es.po	2006-10-15 16:30:20.000000000 +0200
-+++ popt-1.10.7.new/po/es.po	2006-11-27 17:18:21.000000000 +0100
+--- popt/po/es.po.orig	2007-01-21 20:25:55.000000000 +0100
++++ popt/po/es.po	2007-04-07 22:21:54.895613236 +0200
 @@ -2,18 +2,17 @@
  # Copyright (C) YEAR Free Software Foundation, Inc.
  # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -21,10 +20,10 @@ diff -urN popt-1.10.7/po/es.po popt-1.10.7.new/po/es.po
  msgid ""
  msgstr ""
  "Project-Id-Version: popt 1.6.3\n"
- "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2006-08-05 13:40-0400\n"
+ "Report-Msgid-Bugs-To: <rpm-devel@lists.dulug.duke.edu>\n"
+ "POT-Creation-Date: 2007-01-21 14:25-0500\n"
 -"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-+"PO-Revision-Date: 2006-08-05 13:40-0400\n"
++"PO-Revision-Date: 2007-01-21 14:25-0500\n"
  "Last-Translator: Leandro Lucarella <luca@linuxmendoza.org.ar>\n"
 -"Language-Team: LANGUAGE <LL@li.org>\n"
 +"Language-Team: Spanish\n"
