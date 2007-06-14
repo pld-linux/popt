@@ -10,15 +10,16 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.10.9
+Version:	1.11
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 #Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
-Source0:	ftp://jbj.org/pub/rpm-4.4.x/rpm-4.4.9.tar.gz
-# Source0-md5:	210b768006e7d88dd8a3bcd498ea27f6
+Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
+# Source0-md5:	3c36cb9d40a46a3190369002f6cda984
 Patch0:		%{name}-gettext0.11.patch
 Patch1:		%{name}-libdir64.patch
+URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
 BuildRequires:	gettext-devel >= 0.11.5
@@ -26,7 +27,7 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # don't require very fresh rpm.macros to build
-%define		__gettextize	gettextize --copy --force --intl ; cp -f po/Makevars{.template,}
+%define		__gettextize	gettextize --copy --force ; cp -f po/Makevars{.template,}
 
 %description
 Popt is a C library for passing command line parameters. It was heavily
@@ -138,20 +139,20 @@ Biblioteka statyczna popt.
 склад popt-devel.
 
 %prep
-%setup -q -n rpm-4.4.9
-cd popt
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
 mv -f po/{eu_ES,eu}.po
 mv -f po/{no,nb}.po
 
+sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
+
 %build
-cd popt
 %{__gettextize}
 %{__libtoolize}
 %{__autoheader}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake} -i
 %configure \
@@ -163,7 +164,7 @@ cd popt
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/%{_lib}
 
-%{__make} -C popt install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
@@ -181,8 +182,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-#%doc CHANGES COPYING README
-%doc popt/{CHANGES,COPYING,README}
+%doc CHANGES COPYING README
 %attr(755,root,root) /%{_lib}/libpopt.so.*.*.*
 
 %files devel
