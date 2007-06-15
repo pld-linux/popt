@@ -1,0 +1,21 @@
+Index: poptint.c
+===================================================================
+RCS file: /v/rpm/cvs/popt/poptint.c,v
+retrieving revision 1.4
+diff -u -u -r1.4 poptint.c
+--- poptint.c	14 Jun 2007 07:54:52 -0000	1.4
++++ poptint.c	15 Jun 2007 09:44:58 -0000
+@@ -97,9 +97,12 @@
+ {
+   char *buffer = NULL;
+   char c;
++  va_list apc;
++
++  va_copy(apc, ap);
+ 
+   buffer = calloc (sizeof (char), vsnprintf (&c, 1, format, ap) + 1);
+-  vsprintf (buffer, format, ap);
++  vsprintf (buffer, format, apc);
+ 
+   return buffer;
+ }
