@@ -18,8 +18,7 @@ Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
 # Source0-md5:	3c36cb9d40a46a3190369002f6cda984
 Patch0:		%{name}-gettext0.11.patch
-Patch1:		%{name}-libdir64.patch
-Patch2:		%{name}-va.patch
+Patch1:		%{name}-va.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
@@ -142,8 +141,7 @@ Biblioteka statyczna popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
+%patch1 -p0
 
 mv -f po/{eu_ES,eu}.po
 mv -f po/{no,nb}.po
