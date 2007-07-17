@@ -10,15 +10,14 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.11
-Release:	4
+Version:	1.12
+Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 #Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
-# Source0-md5:	3c36cb9d40a46a3190369002f6cda984
+# Source0-md5:	f45290e9ac4b1cf209d0042eb6755543
 Patch0:		%{name}-gettext0.11.patch
-Patch1:		%{name}-fixes.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1.4
@@ -141,7 +140,6 @@ Biblioteka statyczna popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p0
 
 mv -f po/{eu_ES,eu}.po
 mv -f po/{no,nb}.po
