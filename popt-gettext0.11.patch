@@ -1,36 +1,13 @@
---- popt-1.10.2/configure.ac.orig	2005-05-30 08:37:00.000000000 +0200
-+++ popt-1.10.2/configure.ac	2005-07-23 12:57:57.741102776 +0200
-@@ -5,7 +5,7 @@
- AM_INIT_AUTOMAKE(popt, 1.10.2)
- AM_CONFIG_HEADER(config.h)
+diff -urN popt-1.10.7/configure.ac popt-1.10.7.new/configure.ac
+--- popt-1.10.7/configure.ac	2006-04-09 20:19:27.000000000 +0200
++++ popt-1.10.7.new/configure.ac	2006-11-27 17:21:57.000000000 +0100
+@@ -14,7 +14,7 @@
  
--ALL_LINGUAS="cs da de es eu_ES fi fr gl hu id is it ja ko no pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN zh_TW"
-+ALL_LINGUAS="cs da de es  fi fr gl hu id is it ja ko nb pl pt pt_BR ro ru sk sl sr sv tr uk wa zh zh_CN zh_TW"
+ AM_INIT_AUTOMAKE([foreign])
  
- AC_ISC_POSIX
+-ALL_LINGUAS="cs da de es eu_ES fr gl hu is ja ko nl no pl pt ro ru sk sl sv tr uk vi wa"
++ALL_LINGUAS="cs da de es eu fr gl hu is ja ko nl nb pl pt ro ru sk sl sv tr uk vi wa"
  
---- popt-1.10.3/po/es.po.orig	2005-11-17 13:24:36.000000000 +0100
-+++ popt-1.10.3/po/es.po	2005-11-18 18:00:47.396639104 +0100
-@@ -2,18 +2,17 @@
- # Copyright (C) YEAR Free Software Foundation, Inc.
- # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
- #
--#, fuzzy
- msgid ""
- msgstr ""
- "Project-Id-Version: popt 1.6.3\n"
- "Report-Msgid-Bugs-To: \n"
- "POT-Creation-Date: 2005-11-16 09:01-0500\n"
--"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-+"PO-Revision-Date: 2005-11-16 09:01-0500\n"
- "Last-Translator: Leandro Lucarella <luca@linuxmendoza.org.ar>\n"
--"Language-Team: LANGUAGE <LL@li.org>\n"
-+"Language-Team: Spanish\n"
- "MIME-Version: 1.0\n"
--"Content-Type: text/plain; charset=CHARSET\n"
--"Content-Transfer-Encoding: ENCODING\n"
-+"Content-Type: text/plain; charset=ISO-8859-1\n"
-+"Content-Transfer-Encoding: 8bit\n"
- 
- #: popt.c:35
- msgid "unknown errno"
+ AC_PROG_CC
+ AC_PROG_INSTALL
+
