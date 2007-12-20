@@ -14,11 +14,10 @@ Version:	1.13
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
-#Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
 # Source0-md5:	b5c47ce0185c83f947953c77000533bf
 URL:		http://rpm5.org/
-BuildRequires:	autoconf >= 2.50
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
 BuildRequires:	gettext-devel >= 0.11.5
 BuildRequires:	libtool
@@ -160,9 +159,8 @@ install -d $RPM_BUILD_ROOT/%{_lib}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.* $RPM_BUILD_ROOT/%{_lib}
-rm -f $RPM_BUILD_ROOT%{_libdir}/lib*.so
-ln -sf /%{_lib}/`(cd $RPM_BUILD_ROOT/%{_lib}; echo *)` \
+mv -f $RPM_BUILD_ROOT%{_libdir}/libpopt.so.* $RPM_BUILD_ROOT/%{_lib}
+ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libpopt.so.*.*.*) \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 
 %find_lang %{name}
@@ -177,13 +175,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CHANGES COPYING README
 %attr(755,root,root) /%{_lib}/libpopt.so.*.*.*
+%attr(755,root,root) %ghost /%{_lib}/libpopt.so.0
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libpopt.so
 %{_libdir}/libpopt.la
-%{_mandir}/man3/*
 %{_includedir}/popt.h
+%{_mandir}/man3/popt.3*
 
 %if %{with static_libs}
 %files static
