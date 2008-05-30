@@ -10,12 +10,12 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.13
+Version:	1.14
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
-# Source0-md5:	b5c47ce0185c83f947953c77000533bf
+# Source0-md5:	4f90a07316eb825604dd10ae4f9f3f04
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
