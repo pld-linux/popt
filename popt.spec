@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	static_libs	# don't build static libraries
+%bcond_without	dietlibc	# don't build static dietlibc library
 #
 Summary:	C library for parsing command line parameters
 Summary(de.UTF-8):	C-Library zum Parsen von Befehlszeilenparametern
@@ -11,20 +11,26 @@ Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
 Version:	1.14
-Release:	1
+Release:	2
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
 # Source0-md5:	4f90a07316eb825604dd10ae4f9f3f04
+Patch1:		%{name}-diet.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
+%{?with_dietlibc:BuildRequires:	dietlibc-static >= 2:0.31-5}
 BuildRequires:	gettext-devel >= 0.11.5
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # don't require very fresh rpm.macros to build
 %define		__gettextize	gettextize --copy --force ; cp -f po/Makevars{.template,}
+
+# for some reason known only to rpm there must be "\\|" not "\|" here
+%define		dietarch	%(echo %{_target_cpu} | sed -e 's/i.86\\|pentium.\\|athlon/i386/;s/amd64/x86_64/;s/armv.*/arm/')
+%define		dietlibdir	%{_prefix}/lib/dietlibc/lib-%{dietarch}
 
 %description
 Popt is a C library for passing command line parameters. It was heavily
@@ -135,8 +141,21 @@ Biblioteka statyczna popt.
 Це окремий пакет зі статичними бібліотеками, що більше не входять в
 склад popt-devel.
 
+%package dietlibc
+Summary:	Static dietlibc library for popt development
+Summary(pl.UTF-8):	Biblioteka statyczna dietlibc popt
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description dietlibc
+Static dietlibc library for popt development.
+
+%description dietlibc -l pl.UTF-8
+Biblioteka statyczna dietlibc popt.
+
 %prep
 %setup -q
+%patch1 -p1
 
 sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 
@@ -147,14 +166,27 @@ sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake} -i
+
+%if %{with dietlibc}
 %configure \
-	%{!?with_static_libs:--disable-static}
+	CC="diet %{__cc} -Os -static" \
+	ac_cv_func_stpcpy=yes \
+	--enable-static \
+	--disable-shared
+
+%{__make} libpopt.la
+mv -f .libs/libpopt.a diet-libpopt.a
+%{__make} clean
+%endif
+
+%configure
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/%{_lib}
+%{?with_dietlibc:install -d $RPM_BUILD_ROOT%{dietlibdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -162,6 +194,8 @@ install -d $RPM_BUILD_ROOT/%{_lib}
 mv -f $RPM_BUILD_ROOT%{_libdir}/libpopt.so.* $RPM_BUILD_ROOT/%{_lib}
 ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libpopt.so.*.*.*) \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
+
+%{?with_dietlibc:install diet-libpopt.a $RPM_BUILD_ROOT%{dietlibdir}/libpopt.a}
 
 %find_lang %{name}
 
@@ -184,8 +218,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/popt.h
 %{_mandir}/man3/popt.3*
 
-%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libpopt.a
+
+%if %{with dietlibc}
+%files dietlibc
+%defattr(644,root,root,755)
+%{dietlibdir}/libpopt.a
 %endif
