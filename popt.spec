@@ -169,7 +169,7 @@ sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 
 %if %{with dietlibc}
 %configure \
-	CC="diet %{__cc} -Os -static" \
+	CC="diet %{__cc} %{rpmcflags} %{rpmldflags} -Os -static" \
 	ac_cv_func_stpcpy=yes \
 	--enable-static \
 	--disable-shared
