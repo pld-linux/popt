@@ -10,12 +10,12 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.14
-Release:	2
+Version:	1.15
+Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
-# Source0-md5:	4f90a07316eb825604dd10ae4f9f3f04
+# Source0-md5:	c61ef795fa450eb692602a661ec8d7f1
 Patch1:		%{name}-diet.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
@@ -162,8 +162,8 @@ sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 %build
 %{__gettextize}
 %{__libtoolize}
-%{__autoheader}
 %{__aclocal} -I m4
+%{__autoheader}
 %{__autoconf}
 %{__automake} -i
 
