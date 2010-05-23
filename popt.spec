@@ -10,12 +10,12 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.15
+Version:	1.16
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
-# Source0-md5:	c61ef795fa450eb692602a661ec8d7f1
+# Source0-md5:	3743beefa3dd6247a73f8f7a32c14c33
 Patch1:		%{name}-diet.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
@@ -189,6 +189,7 @@ install -d $RPM_BUILD_ROOT/%{_lib}
 %{?with_dietlibc:install -d $RPM_BUILD_ROOT%{dietlibdir}}
 
 %{__make} install \
+	pkgconfigdir=%{_pkgconfigdir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 mv -f $RPM_BUILD_ROOT%{_libdir}/libpopt.so.* $RPM_BUILD_ROOT/%{_lib}
@@ -216,6 +217,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libpopt.so
 %{_libdir}/libpopt.la
 %{_includedir}/popt.h
+%{_pkgconfigdir}/popt.pc
 %{_mandir}/man3/popt.3*
 
 %files static
