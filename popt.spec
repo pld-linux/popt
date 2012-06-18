@@ -16,6 +16,7 @@ License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
 # Source0-md5:	3743beefa3dd6247a73f8f7a32c14c33
+Patch0:		%{name}-automake_1_12.patch
 Patch1:		%{name}-diet.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
@@ -155,6 +156,7 @@ Biblioteka statyczna dietlibc popt.
 
 %prep
 %setup -q
+%patch0 -p1
 %patch1 -p1
 
 sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
