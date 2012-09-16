@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	dietlibc	# don't build static dietlibc library
-#
+
 Summary:	C library for parsing command line parameters
 Summary(de.UTF-8):	C-Library zum Parsen von Befehlszeilenparametern
 Summary(fr.UTF-8):	Bibliothèque C pour analyser les paramètres de la ligne de commande
@@ -170,8 +170,9 @@ sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 %{__automake} -i
 
 %if %{with dietlibc}
+__cc="%{__cc}"
 %configure \
-	CC="diet %{__cc} %{rpmcflags} %{rpmldflags} -Os -static" \
+	CC="diet ${__cc#ccache } %{rpmcflags} %{rpmldflags} -Os -static" \
 	ac_cv_func_stpcpy=yes \
 	--enable-static \
 	--disable-shared
