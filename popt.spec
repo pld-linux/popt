@@ -23,7 +23,7 @@ BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
 %{?with_dietlibc:BuildRequires:	dietlibc-static >= 2:0.31-5}
 BuildRequires:	gettext-devel >= 0.11.5
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # don't require very fresh rpm.macros to build
@@ -159,7 +159,7 @@ Biblioteka statyczna dietlibc popt.
 %patch0 -p1
 %patch1 -p1
 
-sed -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
+%{__sed} -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 
 %build
 %{__gettextize}
