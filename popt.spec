@@ -11,7 +11,7 @@ Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
 Version:	1.12
-Release:	2
+Release:	3
 License:	X Consortium (MIT-like)
 Group:		Libraries
 #Source0:	ftp://jbj.org/pub/rpm-4.4.x/%{name}-%{version}.tar.gz
