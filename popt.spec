@@ -10,15 +10,13 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.16
-Release:	2
+Version:	1.17
+Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
-# Source0-md5:	3743beefa3dd6247a73f8f7a32c14c33
-Patch0:		%{name}-automake_1_12.patch
-Patch1:		%{name}-diet.patch
-Patch2:		%{name}-am.patch
+# Source0-md5:	7f98c657d35981d30dd372da5335c354
+Patch0:		%{name}-diet.patch
 URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
@@ -35,10 +33,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		dietlibdir	%{_prefix}/lib/dietlibc/lib-%{dietarch}
 
 %description
-Popt is a C library for passing command line parameters. It was heavily
-influenced by the getopt() and getopt_long() functions, but it allows
-more powerful argument expansion. It can parse arbitrary argv[] style
-arrays and automatically set variables based on command line
+Popt is a C library for passing command line parameters. It was
+heavily influenced by the getopt() and getopt_long() functions, but it
+allows more powerful argument expansion. It can parse arbitrary argv[]
+style arrays and automatically set variables based on command line
 arguments. It also allows command line arguments to be aliased via
 configuration files and includes utility functions for parsing
 arbitrary strings into argv[] arrays using shell-like rules.
@@ -158,8 +156,6 @@ Biblioteka statyczna dietlibc popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %{__sed} -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 
@@ -176,9 +172,14 @@ __cc="%{__cc}"
 %configure \
 	CC="diet ${__cc#ccache } %{rpmcflags} %{rpmldflags} -Os -static" \
 	ac_cv_func_stpcpy=yes \
+%if "%{?configure_cache}" == "1"
+	--cache-file=%{?configure_cache_file}%{!?configure_cache_file:configure}-initrd.cache \
+%endif
 	--enable-static \
 	--disable-shared
 
+# libpopt.la dependency on configmake.h missing
+%{__make} configmake.h
 %{__make} libpopt.la
 mv -f .libs/libpopt.a diet-libpopt.a
 %{__make} clean
