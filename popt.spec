@@ -14,7 +14,7 @@ Version:	1.17
 Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
-Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	7f98c657d35981d30dd372da5335c354
 Patch0:		%{name}-diet.patch
 URL:		http://rpm5.org/
