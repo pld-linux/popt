@@ -175,8 +175,9 @@ __cc="%{__cc}"
 %if "%{?configure_cache}" == "1"
 	--cache-file=%{?configure_cache_file}%{!?configure_cache_file:configure}-initrd.cache \
 %endif
-	--enable-static \
-	--disable-shared
+	--disable-shared \
+	--disable-silent-rules \
+	--enable-static
 
 # libpopt.la dependency on configmake.h missing
 %{__make} configmake.h
@@ -185,7 +186,8 @@ mv -f .libs/libpopt.a diet-libpopt.a
 %{__make} clean
 %endif
 
-%configure
+%configure \
+	--disable-silent-rules
 
 %{__make}
 
