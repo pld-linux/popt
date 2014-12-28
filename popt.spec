@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	dietlibc	# don't build static dietlibc library
+%bcond_with	dietlibc	# don't build static dietlibc library
 
 Summary:	C library for parsing command line parameters
 Summary(de.UTF-8):	C-Library zum Parsen von Befehlszeilenparametern
@@ -21,7 +21,7 @@ URL:		http://rpm5.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
 %{?with_dietlibc:BuildRequires:	dietlibc-static >= 2:0.31-5}
-BuildRequires:	gettext-devel >= 0.11.5
+BuildRequires:	gettext-tools >= 0.11.5
 BuildRequires:	libtool >= 2:2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
