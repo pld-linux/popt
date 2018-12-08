@@ -1,0 +1,11 @@
+--- popt-1.17/popt.c.orig	2014-08-09 22:13:11.000000000 +0200
++++ popt-1.17/popt.c	2018-12-08 09:41:33.241167491 +0100
+@@ -1774,7 +1774,7 @@
+ 	    item->option.argDescrip = _free(item->option.argDescrip);
+ /*@=modobserver =observertrans =dependenttrans@*/
+ #if !defined(SUPPORT_CONTIGUOUS_ARGV)
+-	    for (i = 0; item->argv[i]; i++)
++	    for (i = 0; (i < item->argc) && item->argv[i]; i++)
+ 		item->argv[i] = _free(item->argv[i]);
+ #endif
+ 	    item->argv = _free(item->argv);
