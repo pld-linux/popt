@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	dietlibc	# don't build static dietlibc library
+%bcond_with	dietlibc	# static dietlibc library
 
 Summary:	C library for parsing command line parameters
 Summary(de.UTF-8):	C-Library zum Parsen von Befehlszeilenparametern
@@ -10,24 +10,21 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.17
-Release:	3
+Version:	1.18
+Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
-Source0:	http://rpm5.org/files/popt/%{name}-%{version}.tar.gz
-# Source0-md5:	7f98c657d35981d30dd372da5335c354
+Source0:	http://ftp.rpm.org/popt/releases/popt-1.x/%{name}-%{version}.tar.gz
+# Source0-md5:	450f2f636e6a3aa527de803d0ae76c5a
 Patch0:		%{name}-diet.patch
-Patch1:		%{name}-alias-argc.patch
-URL:		http://rpm5.org/
+Patch1:		%{name}-pl.po-update.patch
+URL:		https://rpm.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
 %{?with_dietlibc:BuildRequires:	dietlibc-static >= 2:0.31-5}
 BuildRequires:	gettext-tools >= 0.11.5
 BuildRequires:	libtool >= 2:2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-# don't require very fresh rpm.macros to build
-%define		__gettextize	gettextize --copy --force ; cp -f po/Makevars{.template,}
 
 # for some reason known only to rpm there must be "\\|" not "\|" here
 %define		dietarch	%(echo %{_target_cpu} | sed -e 's/i.86\\|pentium.\\|athlon/i386/;s/amd64/x86_64/;s/armv.*/arm/')
@@ -165,8 +162,8 @@ Biblioteka statyczna dietlibc popt.
 %{__gettextize}
 %{__libtoolize}
 %{__aclocal} -I m4
-%{__autoheader}
 %{__autoconf}
+%{__autoheader}
 %{__automake} -i
 
 %if %{with dietlibc}
@@ -184,7 +181,7 @@ __cc="%{__cc}"
 # libpopt.la dependency on configmake.h missing
 %{__make} configmake.h
 %{__make} libpopt.la
-mv -f .libs/libpopt.a diet-libpopt.a
+%{__mv} .libs/libpopt.a diet-libpopt.a
 %{__make} clean
 %endif
 
@@ -202,7 +199,7 @@ install -d $RPM_BUILD_ROOT/%{_lib}
 	pkgconfigdir=%{_pkgconfigdir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/libpopt.so.* $RPM_BUILD_ROOT/%{_lib}
+%{__mv} $RPM_BUILD_ROOT%{_libdir}/libpopt.so.* $RPM_BUILD_ROOT/%{_lib}
 ln -sf /%{_lib}/$(basename $RPM_BUILD_ROOT/%{_lib}/libpopt.so.*.*.*) \
 	$RPM_BUILD_ROOT%{_libdir}/libpopt.so
 

@@ -1,0 +1,20 @@
+--- popt-1.18/po/pl.po.orig	2020-06-23 13:15:12.000000000 +0200
++++ popt-1.18/po/pl.po	2021-03-10 19:30:23.650808370 +0100
+@@ -62,7 +62,7 @@
+ 
+ #: src/popt.c:1643
+ msgid "config file failed sanity test"
+-msgstr ""
++msgstr "plik konfiguracyjny zawiera błędy"
+ 
+ #: src/popt.c:1647
+ msgid "unknown error"
+@@ -106,7 +106,7 @@
+ 
+ #: src/popthelp.c:186
+ msgid "SHORT"
+-msgstr ""
++msgstr "SHORT"
+ 
+ #: src/popthelp.c:187
+ msgid "LONG"
