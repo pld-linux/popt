@@ -17,6 +17,7 @@ Group:		Libraries
 Source0:	http://ftp.rpm.org/popt/releases/popt-1.x/%{name}-%{version}.tar.gz
 # Source0-md5:	eaa2135fddb6eb03f2c87ee1823e5a78
 Patch0:		%{name}-diet.patch
+Patch1:		%{name}-pl.po-update.patch
 URL:		https://rpm.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.10
@@ -153,7 +154,9 @@ Biblioteka statyczna dietlibc popt.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
+%{__rm} po/stamp-po
 %{__sed} -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 
 %build
