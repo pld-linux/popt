@@ -10,14 +10,13 @@ Summary(ru.UTF-8):	Библиотека C для разбора параметр
 Summary(tr.UTF-8):	Komut satırı parametrelerini ayrıştırımak için C arşivi
 Summary(uk.UTF-8):	Бібліотека C для розбору параметрів командної стрічки
 Name:		popt
-Version:	1.18
-Release:	2
+Version:	1.19
+Release:	1
 License:	X Consortium (MIT-like)
 Group:		Libraries
 Source0:	http://ftp.rpm.org/popt/releases/popt-1.x/%{name}-%{version}.tar.gz
-# Source0-md5:	450f2f636e6a3aa527de803d0ae76c5a
+# Source0-md5:	eaa2135fddb6eb03f2c87ee1823e5a78
 Patch0:		%{name}-diet.patch
-Patch1:		%{name}-pl.po-update.patch
 URL:		https://rpm.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.4
@@ -154,7 +153,6 @@ Biblioteka statyczna dietlibc popt.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %{__sed} -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
 
@@ -215,7 +213,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc CHANGES COPYING README
+%doc COPYING README
 %attr(755,root,root) /%{_lib}/libpopt.so.*.*.*
 %attr(755,root,root) %ghost /%{_lib}/libpopt.so.0
 

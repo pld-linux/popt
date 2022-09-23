@@ -9,4 +9,4 @@
 +#endif
  #endif
  
- #define	POPT_WCHAR_HACK
+ #ifdef HAVE_MBSRTOWCS
