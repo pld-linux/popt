@@ -19,9 +19,9 @@ Source0:	http://ftp.rpm.org/popt/releases/popt-1.x/%{name}-%{version}.tar.gz
 Patch0:		%{name}-diet.patch
 URL:		https://rpm.org/
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake >= 1.4
+BuildRequires:	automake >= 1:1.10
 %{?with_dietlibc:BuildRequires:	dietlibc-static >= 2:0.31-5}
-BuildRequires:	gettext-tools >= 0.11.5
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	libtool >= 2:2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
