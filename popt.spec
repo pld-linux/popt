@@ -153,8 +153,8 @@ Biblioteka statyczna dietlibc popt.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %{__rm} po/stamp-po
 %{__sed} -i -e 's#po/Makefile.in intl/Makefile##g' configure.ac
